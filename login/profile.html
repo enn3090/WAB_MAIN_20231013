@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>안녕하세요 게임 사이트입니다.</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" defer></script>
+  <link rel="stylesheet" href="/css/profile.css" />
+</head>
+<body style="background-color: #fffbe6;">
+
+
+  <style>
+    body {
+      background-color: #fffbe6;
+      text-align: center;
+      color: #333;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo-info {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      background-color: #fffbe6;
+      padding: 20px;
+      border-bottom: 2px solid #ffeb99;
+    }
+    .logo-info img {
+      width: 100px;
+      height: 60px;
+    }
+    .logo-info h3 {
+      font-size: 15px;
+      font-weight: bold;
+      color: #333;
+      margin-left: 10px;
+    }
+    nav {
+      margin-top: 120px;
+    }
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ffcc80;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.2s ease;
+      color: #333;
+    }
+    .btn:hover {
+      background-color: #ffb74d;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="center">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary w-100">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+            <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Disabled</a></li>
+          </ul>
+          <form class="d-flex align-items-stretch gap-2" role="search" onsubmit="return googleSearch();">
+            <input class="form-control" id="search_input" type="search" placeholder="검색어 입력" />
+            <button class="btn" type="submit">Search</button>
+            <a href="login/login.html" class="btn" id="login_btn">로그인 하기</a>
+            <a href="#" class="btn" id="logout_btn" style="display: none;">로그아웃 하기</a>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- 수정된 프로필 섹션 시작 -->
+  <section style="background-color: #eee;">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col">
+          <nav aria-label="breadcrumb" class="bg-body-tertiary rounded-3 p-3 mb-4">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"><a href="#">홈</a></li>
+              <li class="breadcrumb-item"><a href="#">사용자</a></li>
+              <li class="breadcrumb-item active" aria-current="page">사용자 프로필</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src="../image/mypoto.jpg" alt="내사진" class="rounded-circle img-fluid" style="width: 150px;">
+              <h5 class="my-3">이영현</h5>
+              <p class="text-muted mb-1">개발자</p>
+              <p class="text-muted mb-4">성결대학교, 미디어소프트웨어학과, 20231013</p>
+              <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-primary">팔로우</button>
+                <button type="button" class="btn btn-outline-primary ms-1">메시지 보내기</button>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4 mb-lg-0">
+            <div class="card-body p-0">
+              <ul class="list-group list-group-flush rounded-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fas fa-globe fa-lg text-warning"></i>
+                  <p class="mb-0">https://yourwebsite.com</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-github fa-lg text-body"></i>
+                  <p class="mb-0">github_이영현</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
+                  <p class="mb-0">@twitter_X</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
+                  <p class="mb-0">_3_y__h_3_</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                  <p class="mb-0">facebook_이영현</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3"><p class="mb-0">이름</p></div>
+                <div class="col-sm-9"><p class="text-muted mb-0">이영현</p></div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3"><p class="mb-0">이메일</p></div>
+                <div class="col-sm-9"><p class="text-muted mb-0">dldudgus12@sungkyul.ac.kr</p></div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3"><p class="mb-0">전화번호</p></div>
+                <div class="col-sm-9"><p class="text-muted mb-0">010-8417-0135</p></div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3"><p class="mb-0">휴대폰</p></div>
+                <div class="col-sm-9"><p class="text-muted mb-0">010-8417-0135</p></div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3"><p class="mb-0">주소</p></div>
+                <div class="col-sm-9"><p class="text-muted mb-0">서울특별시 영등포구 도림동</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                  <p class="mb-4"><span class="text-primary font-italic me-1">과제</span> 진행 현황</p>
+                  <p class="mb-1" style="font-size: .77rem;">웹 디자인</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">웹 마크업</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">단일 페이지</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">모바일 템플릿</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">백엔드 API</p>
+                  <div class="progress rounded mb-2" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                  <p class="mb-4"><span class="text-primary font-italic me-1">기술</span> 내용 요약</p>
+                  <p class="mb-1" style="font-size: .77rem;">사용자 경험에 중점을 둔 세련된 인터페이스 구축</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">반응형 구조와 시맨틱 마크업 완성</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">빠른 로딩과 부드러운 네비게이션 구현</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">다양한 기기에서 최적화된 화면 제공</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">안정적이고 효율적인 서버 통신 개발</p>
+                  <div class="progress rounded mb-2" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="map" style="width:800px;height:400px; margin-top: 20px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>프로필 페이지</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+    <!-- ✅ Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/profile.css" />
+  </head>
+  <body style="background-color: #fffbe6;">
+  
+    <!-- ✅ 사용자 환영 메시지 -->
+    <div id="user_email" class="text-center mt-4 fw-bold fs-5"></div>
+  
+    <!-- ✅ 홈으로 돌아가기 버튼 -->
+    <div class="text-center mt-2">
+      <button class="btn btn-warning btn-sm" onclick="location.href='/index.html'">🏠 홈으로</button>
+    </div>
+  
+    <!-- ✅ 장소 검색창 -->
+    <div class="text-center mt-2">
+      <input type="text" id="search_input" placeholder="장소를 검색하세요"
+             style="width: 300px; padding: 6px; border-radius: 4px; border: 1px solid #ccc;" />
+      <button class="btn btn-dark btn-sm" onclick="searchPlaces()">검색</button>
+    </div>
+  
+    <!-- ✅ 지도 조작 버튼 -->
+    <div class="d-flex flex-wrap justify-content-center gap-2 mt-3 mb-4">
+      <button class="btn btn-outline-primary btn-sm" onclick="moveToGwanghwamun()">📍 광화문</button>
+      <button class="btn btn-outline-success btn-sm" onclick="zoomIn()">🔍 확대</button>
+      <button class="btn btn-outline-success btn-sm" onclick="zoomOut()">🔎 축소</button>
+      <button class="btn btn-outline-warning btn-sm" onclick="toggleDrag()">🖱 드래그</button>
+      <button class="btn btn-outline-warning btn-sm" onclick="toggleZoom()">🔄 줌</button>
+      <button class="btn btn-outline-danger btn-sm" onclick="resetMap()">🔁 초기화</button>
+    </div>
+  
+    <!-- ✅ 지도 -->
+    <section class="mt-1">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+  
+            <!-- 지도 표시 -->
+            <div class="d-flex justify-content-center mb-2">
+              <div id="map" style="width:800px; height:400px; border-radius: 10px;"></div>
+            </div>
+  
+            <!-- ✅ 중심 주소 출력 -->
+            <div id="centerAddress" class="text-center text-primary fw-semibold mb-3" style="font-size: 16px;">
+              주소를 불러오는 중...
+            </div>
+  
+            <!-- 클릭 메시지 -->
+            <p class="text-center text-muted mb-1"><em>지도를 클릭해주세요!</em></p>
+            <div id="clickLatlng" class="text-center text-secondary mb-3" style="font-size: 14px;"></div>
+  
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- ✅ 검색 결과 리스트 -->
+    <ul id="placesList" class="list-unstyled text-center mb-4"></ul>
+  
+    <!-- ✅ 구글 검색 함수 (선택 기능) -->
+    <script>
+      function googleSearch() {
+        const query = document.getElementById("search_input")?.value;
+        if (!query || query.trim() === "") {
+          alert("검색어를 입력해주세요!");
+          return false;
+        }
+        const url = "https://www.google.com/search?q=" + encodeURIComponent(query);
+        window.open(url, "_blank");
+        return false;
+      }
+    </script>
+  
+    <!-- ✅ 카카오맵 API -->
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=525e1b8e5c637b184027a2d3e9f4bbd9&libraries=services,clusterer,geocoder,drawing"></script>
+  
+    <!-- ✅ Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+    <!-- ✅ 지도 기능 JS -->
+    <script type="module" src="/js/map.js"></script>
+  
+  </body>
+  </html>
+  

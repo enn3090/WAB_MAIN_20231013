@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>팝업창 확인</title>
+  <!-- ✅ 같은 폴더 안이므로 이렇게 수정 -->
+  <script src="popup.js"></script>
+  <style>
+    body {
+      font-family: '맑은 고딕', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    #clock {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    #Time {
+      font-size: 28px;
+      margin: 15px 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+    label {
+      font-size: 20px;
+    }
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>팝업창 확인</h1>
+
+  <h3 id="clock">현재 시간:</h3>
+  <h2 id="Time">50초 후 창이 닫힙니다.</h2>
+
+  <div>
+    <input type="checkbox" id="check_popup">
+    <label for="check_popup">하루에 한 번만 열기</label>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <button onclick="closePopup()">닫기</button>
+  </div>
+</body>
+</html>

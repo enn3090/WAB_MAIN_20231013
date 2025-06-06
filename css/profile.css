@@ -1,0 +1,64 @@
+/* 검색창 */
+#search_input {
+    padding: 6px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* 검색 결과 리스트 */
+  #placesList {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  #placesList li {
+    margin: 5px auto;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease;
+  }
+  
+  #placesList li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* 클릭 위경도 출력 */
+  #clickLatlng {
+    font-size: 15px;
+    color: #444;
+    margin-top: 10px;
+  }
+  
+  /* 사용자 환영 텍스트 */
+  #user_email {
+    font-weight: bold;
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 10px;
+  }
+  
+  /* ✅ 지도 중심 주소 출력 스타일 */
+  #centerAddress {
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: #fef3c7;
+    border: 1px solid #fcd34d;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #78350f;
+    text-align: center;
+    margin: 10px auto;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease;
+  }
+  
+  #centerAddress:hover {
+    background-color: #fde68a;
+  }
+  
